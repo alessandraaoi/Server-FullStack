@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const db = async () => {
-    await mongoose.connect(process.env.DB_CONNECTION || '')
+    await mongoose.connect(process.env.DB_CONNECTION || 'mongodb+srv://alexxandraoix3:ale@cluster0.bkvenvv.mongodb.net/Proyecto')
     .catch(error => {console.log('Error Mongo' + error)})
 }
 

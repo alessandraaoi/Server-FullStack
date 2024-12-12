@@ -2,23 +2,16 @@ const Anuncio = require('../models/anuncios')
 
 // Ruta update
 const updateA = async (req, res) => {
-  const { _id } = req.params;
-
-  console.log('ID del anuncio:', _id); // Agrega este log para verificar el ID
-
+  const { id } = req.params;
   const { title, description } = req.body;
 
-    try {
-    
-
-      /* In questo .js devo passare i dati che ho letto attraverso getAnuncios-Update.js
-      Salvare da qualche parte l'id (object id) 
-      Quando l'usuario da l'ok al form, manda i dati al server */
-
-
+  console.log('id:', req.params['id'])
+  console.log('ID del anuncio:', id); // Agrega este log para verificar el ID
+  
+  try {
    // Buscar el anuncio por ID y actualizarlo
-      const anuncioActualizado = await Anuncio.findByIdAndUpdate(  _id,
-         {title, description},
+      const anuncioActualizado = await Anuncio.findByIdAndUpdate( id,
+        {title, description},
         { new: true } 
       );
   
@@ -29,7 +22,7 @@ const updateA = async (req, res) => {
       // Devolver el anuncio actualizado
       res.json(anuncioActualizado);
     } catch (error) {
-      console.error('Error al actualizar el anuncio:', error);
+      console.error('Error al actualizar el anuncio:', error); // AQUÍ ME DA ERROR --- 04.09.2024
       res.status(500).json({ message: 'Error al actualizar el anuncio' });
     }
   };

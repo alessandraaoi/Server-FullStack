@@ -18,8 +18,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/user/:userId', controllers.getUser);
 app.get('/anuncio/:userId', controllers.getAnuncio);
-app.put('/anuncio/:_id', controllers.updateA)
-app.post('/register', controllers.register);
+app.get('/anuncio/:id', controllers.getOne)
+
+// app.post('/register', controllers.register);
+
+app.put('/anuncio/:id', controllers.updateA)
+
 app.post('/login', controllers.login);
 
 // app.use('/login', routes); 

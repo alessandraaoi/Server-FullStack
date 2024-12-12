@@ -1,10 +1,11 @@
-// ------------ CONTROLLER: BUSCAR ANUNCIO POR ID (GET)
+// ------------ CONTROLLER: BUSCAR ANUNCIO POR USER ID (GET)
 
 const Anuncio = require('../models/anuncios')
 
 const getAnuncio = async (req, res) => {
     const {userId} = req.params;
     console.log("chiamato anuncio server con id=", userId);
+    console.log('getAnuncios : obteniendo anuncios')
    
     //userid= localStorage.getItem('_id');
     console.log('annuncio', userId);
@@ -16,7 +17,7 @@ const getAnuncio = async (req, res) => {
                 return res.json({mensaje: 'Anuncio no encontrado'})
             } else {
                 console.log(anuncio);
-                const {_id, title, description,userid, ...resto} = anuncio;
+                const {_id, title, description, ...resto} = anuncio;
                 //console.log(resto);
                 res.json(anuncio);
             }
