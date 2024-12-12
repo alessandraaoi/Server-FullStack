@@ -10,19 +10,19 @@ const db = require('./database/db')
 
 const controllers = require('./controller/app')
 
-const app = express();
+const app = express(); 
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/user/:userId', controllers.getUser);
-app.get('/anuncio/:userId', controllers.getAnuncio);
-app.get('/anuncio/:id', controllers.getOne)
+app.get('/anuncio/:userId', controllers.getAnuncio); // id usuario
+app.get('/anuncio/:id', controllers.getOne) // id anuncio
 
 // app.post('/register', controllers.register);
 
-app.put('/anuncio/:id', controllers.updateA)
+app.put('/anuncio/:id', controllers.updateA) // id anuncio
 
 app.post('/login', controllers.login);
 
