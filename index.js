@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
-    res.json('Haciendo GET en /')
+    console.log('Haciendo GET en /')
 })
 
 app.get('/user/:userId', controllers.getUser);
