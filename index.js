@@ -16,6 +16,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => {
+    res.json('Haciendo GET en /')
+})
+
 app.get('/user/:userId', controllers.getUser);
 app.get('/anuncio/:userId', controllers.getAnuncio); // id usuario
 app.get('/anuncio/:id', controllers.getOne) // id anuncio
